@@ -13,20 +13,20 @@ setlocale(LC_CTYPE, "C.UTF-8");
 
 
 $filebody = $_POST['filebody'];
-$processor = '';
-$order = '';
+$processor = ' ';
+$order = ' ';
 $option = ' ';
 
-$tmpfile = "/var/www/html/webcui/sol/api/sol/bin/NaTT-1.9/tempfile.trs ";
+$tmpfile = "/var/www/html/webcui/natt/api/tmp/tempfile.trs";
 $fp = fopen($tmpfile, "w");
 fwrite($fp, $filebody);
 fclose($fp);
 
 if($_POST['processor'] !== 'none'){
-    $processor = $_POST['processor'];
+    $processor .= $_POST['processor'];
 }
 else{
-    $order = $_POST['order'];
+    $order .= $_POST['order'];
     //optionを追加していく
 }
 
@@ -38,6 +38,7 @@ $cmd = '/var/www/html/webcui/sol/api/sol/bin/NaTT-1.9/NaTT.exe '. $tmpfile . $pr
 
 echo '<font color=\"green\">&gt; ' . $cmd . '</font><br>';
 exec($cmd, $output); //実行
+exec('rm /var/www/html/webcui/natt/api/tmp/tempfile.trs');
 
 //表示
 printOutput($output);
