@@ -264,7 +264,7 @@ export default {
 
 <style>
 .v-textarea {
-  font-size: 12px;
+  font-size: 14px;
 }
 .v-textarea textarea{
   line-height: 20px;
