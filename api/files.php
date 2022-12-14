@@ -12,7 +12,7 @@ if ($_POST['path'] == null) {
     array(
       'name' => 'filebody',
       'display' => 'Example',
-      'dir' => './example'
+      'dir' => '/var/www/html/webcui/natt-examples'
     )
   );
 
