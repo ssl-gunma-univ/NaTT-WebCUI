@@ -17,7 +17,7 @@ $processor = ' ';
 $order = ' ';
 $option = ' ';
 
-$tmpfile = "/var/www/html/webcui/natt/api/tmp/tempfile.trs";
+$tmpfile = "./tmp/tempfile.trs";
 $fp = fopen($tmpfile, "w");
 fwrite($fp, $filebody);
 fclose($fp);
@@ -38,7 +38,7 @@ $cmd = '/var/www/html/webcui/sol/api/sol/bin/NaTT-1.9/NaTT.exe '. $tmpfile . $pr
 
 echo '<font color=\"green\">&gt; ' . $cmd . '</font><br>';
 exec($cmd, $output); //実行
-exec('rm /var/www/html/webcui/natt/api/tmp/tempfile.trs');
+exec('rm ./tmp/tempfile.trs');
 
 //表示
 printOutput($output);
