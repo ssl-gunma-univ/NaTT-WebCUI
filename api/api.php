@@ -36,7 +36,7 @@ if ($_POST['help'] === 'true')        { $option .= '--help ';    $tmpfile = ''; 
 $cmd = '/var/www/html/webcui/sol/api/sol/bin/NaTT-1.9/NaTT.exe '. $tmpfile . $processor . $order . $option . ' 2>&1';
 //$cmd = '/var/www/html/webcui/';
 
-echo '<font color=\"green\">&gt; ' . $cmd . '</font><br>';
+//echo '<font color=\"green\">&gt; ' . $cmd . '</font><br>';
 exec($cmd, $output); //実行
 exec('rm ./tmp/tempfile.trs');
 
