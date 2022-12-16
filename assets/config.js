@@ -47,11 +47,27 @@ export const config = {
       enable: false,
       icon: 'mdi-order-alphabetical-ascending'
     },
+    help: {
+      enable: true,
+      icon: 'mdi-play',
+      text: 'Help',
+      method: (webcui) => {
+        webcui.sendReq(
+          (webcui) => {
+            webcui.updateParam({ key: 'help', value: { value: true } })
+          },
+          (webcui, result) => {
+            webcui.clearConsole()
+            webcui.addLine({ html: result })
+          })
+      }
+    },
     sendReq: {
       enable: true,
       icon: 'mdi-play',
       text: 'Check',
       before: (webcui) => {
+        webcui.updateParam({ key: 'help', value: { value: false } })
         webcui.clearConsole()
       },
       after: (webcui, result) => {

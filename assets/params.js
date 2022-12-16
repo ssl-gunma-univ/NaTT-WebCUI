@@ -36,11 +36,10 @@ export const params = {
     size: 3,
     if: 'none'
   },
-
-//option
-  help:        { display: '--help',         type: 'check',  default: false,  size: 'whole' },
-
-  
+  //option  
+  help: {
+    default: false
+  },
 
   filebody: {
     display: 'file body',
