@@ -42,7 +42,8 @@
                     'py-0' : param.hasOwnProperty('type'),
                     'pa-0' : !param.hasOwnProperty('type'),
                     'py-2' : param.type === 'textarea',
-                    'py-1' : param.type === 'file'
+                    'py-1' : param.type === 'file',
+                    'pt-7' : param.type === 'slider'
                   }"
                 >
                   <v-text-field
@@ -141,6 +142,16 @@
                     dense
                     :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-file-input>
+                  <v-slider
+                    v-if="param.type === 'slider'"
+                    :label="param.display"
+                    :value="param.value"
+                    @change="(value) => updateParam({ key: key, value: { value: value } })"
+                    :max="param.max"
+                    :min="param.min"
+                    hide-details
+                    thumb-label
+                  ></v-slider>
                   <v-alert
                     v-if="param.type === 'filename'"
                   >
