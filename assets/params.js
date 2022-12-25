@@ -46,6 +46,7 @@ export const params = {
     type: 'textarea',
     rows: 20,
     default: '',
+    monospace: true,
     size: 'whole'
   }
 }
