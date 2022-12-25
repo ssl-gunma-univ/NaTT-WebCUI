@@ -5,8 +5,8 @@ export const config = {
 
   address: '/webcui/natt',      // http://localhost:3000/[address]
 
-  webApiUrl: //`http://solweb.mydns.jp/webcui/natt/api/api.php`,
-             `http://localhost:80/webcui/natt/api/api.php`,
+  webApiUrl: `http://solweb.mydns.jp/webcui/natt/api/api.php`,
+             //`http://localhost:80/webcui/natt/api/api.php`,
              
 
   consoleLocation: 'right',    // Placing the console. [left | right | top | bottom]
@@ -30,7 +30,8 @@ export const config = {
     },
     history: {
       enable: true,
-      icon: 'mdi-history'
+      icon: 'mdi-history',
+      text: 'History'
     },
     examples: {
       enable: false,
@@ -40,8 +41,8 @@ export const config = {
       enable: true,
       icon: 'mdi-file-multiple',
       text: 'Examples',
-      webApiUrl: //'http://solweb.mydns.jp/webcui/natt/api/files.php',
-                 'http://localhost:80/webcui/natt/api/files.php',
+      webApiUrl: 'http://solweb.mydns.jp/webcui/natt/api/files.php',
+                 //'http://localhost:80/webcui/natt/api/files.php',
     },
     variables: {
       enable: false,
@@ -49,15 +50,15 @@ export const config = {
     },
     help: {
       enable: true,
-      icon: 'mdi-play',
+      icon: 'mdi-help',
       text: 'Help',
       method: (webcui) => {
         webcui.sendReq(
           (webcui) => {
             webcui.updateParam({ key: 'help', value: { value: true } })
+            webcui.clearConsole()
           },
           (webcui, result) => {
-            webcui.clearConsole()
             webcui.addLine({ html: result })
           })
       }
