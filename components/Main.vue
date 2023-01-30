@@ -66,7 +66,7 @@
                     outlined
                     clearable
                     :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
-                    :class="{'monospace' : true }"
+                    :class="{'monospace' : param.monospace }"
                   ></v-textarea>
                   <v-select
                     v-if="param.type === 'select' && (typeof param.items[0]) !== 'object'"

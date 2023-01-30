@@ -94,8 +94,10 @@ export default {
       .then(function (response) {
         let result = response.data
         let fname = path.replace(file.dir + '/', '')
+        let extension = fname.substring(fname.indexOf(".")+1)
         vue.updateParam({ key: file.name, value: { value: result , display: fname} })
         vue.updateParam({ key: file.filename, value: { value: fname } })
+        vue.updateParam({ key: file.extension, value: { value: extension } })
       })
       .catch(function (err) {
         vue.displayConnectionErrorMsg()
